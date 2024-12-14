@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: TechDocs
+metadata:
+  name: 'tech-hiring-documentation'
+  title: 'tech hiring documentation'
+  description: 'Tech Hiring techdocs'
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  owner: 'group:default/tech-hiring'
+  repo: 'github.com?owner=nytimes&repo=tech-hiring-docs'
+  type: techdocs

@@ -1,0 +1,29 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: build-docs
+  pull: if-not-exists
+  image: squidfunk/mkdocs-material:3.2.0
+  commands:
+    - mkdocs build --strict
+
+- name: deploy-prd
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: deploy
+    app_file: app.yaml
+    max_versions: 2
+    project: nyt-docs-prd
+    version: ${DRONE_COMMIT}
+  environment:
+    GAE_CREDENTIALS:
+      from_secret: google_credentials
+    GOPATH: /drone
+  when:
+    branch:
+      - main
+    event:
+      - push

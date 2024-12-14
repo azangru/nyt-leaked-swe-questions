@@ -1,0 +1,9 @@
+.FilterSelectorSelect {
+    position: relative;
+    bottom: 40px;
+    left: 10px;
+}
+
+.SelectorDropDown {
+    float: left;
+}

@@ -1,0 +1,88 @@
+{
+    "lanes": [
+        {
+            "id": "backlog",
+            "title": "Backlog 🏋🏽‍",
+            "cards": [
+                {
+                    "id": "write-blog-post",
+                    "title": "Write Blog Post",
+                    "description": "Photogrammetry in journalism",
+                    "label": "🔥🔥🔥"
+                },
+                {
+                    "id": "finish-editing-video",
+                    "title": "Finish Editing Video",
+                    "description": "For Documentation To the Website",
+                    "label": "🔥"
+                },
+                {
+                    "id": "deploy-new-website",
+                    "title": "Deploy New Website",
+                    "description": "To Google App Engine and set CNAME",
+                    "label": "🔥🔥"
+                }
+            ]
+        },
+        {
+            "id": "progres",
+            "title": "In Progress 👟",
+            "cards": [
+                {
+                    "id": "finish-assignment",
+                    "title": "Finish Assignment",
+                    "description": "React App Challenge To Filter Tasks",
+                    "label": "🔥🔥🔥"
+                },
+                {
+                    "id": "request-time-off",
+                    "title": "Request Time Off",
+                    "description": "Send Request Over HR System",
+                    "label": "🔥"
+                }
+            ]
+        },
+        {
+            "id": "blocked",
+            "title": "Blocked 🛑",
+            "cards": [
+                {
+                    "id": "buy-flights",
+                    "title": "Buy Flights",
+                    "description": "Blocked Until Time Off Is Approved",
+                    "label": "🔥"
+                }
+            ]
+        },
+        {
+            "id": "complete",
+            "title": "Complete ✅",
+            "cards": [
+                {
+                    "id": "write-project-spec",
+                    "title": "Write Project Spec",
+                    "description": "For Website And Blog Development",
+                    "label": "🔥🔥🔥"
+                },
+                {
+                    "id": "stakeholder-meeting",
+                    "title": "Stakeholder Meeting",
+                    "description": "With All Stakeholders In The Website",
+                    "label": "🔥🔥"
+                },
+                {
+                    "id": "deploy-website-mvp",
+                    "title": "Deploy Website MVP",
+                    "description": "And Share Links In Team Slack (@here)",
+                    "label": "🔥🔥"
+                },
+                {
+                    "id": "agenda-for-sprint-kickoff",
+                    "title": "Agenda For Sprint Kickoff",
+                    "description": "Share With All The Email Invites Before",
+                    "label": "🔥"
+                }
+            ]
+        }
+    ]
+}

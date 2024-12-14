@@ -1,0 +1,18 @@
+syntax = "proto3";
+package hw;
+
+option java_package = "hw";
+option java_multiple_files = true;
+
+message InventoryReport {
+    message BookStatus {
+      int32 bookID = 1; //An identifier unique to this book
+      
+      int32 countIn = 2; //Number of copies of the bookId currently checked-IN of the library
+      int32 countOut = 3; //Number of copies of the bookId currently checked-OUT of the library
+    }
+
+    //A list of statuses for every unique BookId after all the transactions
+    //This list should NOT include books that are removed from the library
+    repeated BookStatus statuses = 1; 
+}

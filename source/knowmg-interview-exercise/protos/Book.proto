@@ -1,0 +1,13 @@
+syntax = "proto3";
+package hw;
+
+option java_package = "hw";
+option java_multiple_files = true;
+
+message Book {
+  int32 bookID = 1; //an identifier unique to this book
+  string title = 2; //the title of the book
+  string authors = 3; //a rendered list of the authors of the book
+  int32 publicationYear = 4; //the year the book was published
+  float deweyDecimal = 5; //a call number representing the book's location in the library
+}

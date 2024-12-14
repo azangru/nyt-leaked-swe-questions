@@ -1,0 +1,17 @@
+{
+  "name": "nightwatch",
+  "version": "0.0.1",
+  "description": "A Nightwatch.js example",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/nightwatch/bin/nightwatch -c nightwatch.conf.js"
+  },
+  "keywords": [
+    "nightwatch.js"
+  ],
+  "devDependencies": {
+    "nightwatch": "^0.9.16",
+    "selenium-webdriver": "^2.53.3",
+    "axios": "^0.16.2"
+  }
+}

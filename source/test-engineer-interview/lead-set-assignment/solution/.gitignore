@@ -1,0 +1,6 @@
+
+/chromedriver
+/selenium-server-standalone-3.4.0.jar
+/.idea/
+/test-reports/
+/node_modules/

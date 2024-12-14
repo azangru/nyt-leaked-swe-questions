@@ -1,0 +1,21 @@
+syntax = "proto3";
+package hw;
+
+import "Book.proto";
+
+option java_package = "hw";
+option java_multiple_files = true;
+
+//A transaction that can be made with a book
+message Transaction {
+  enum StatusChange {
+    NOT_SET = 0;
+    ADD = 1;
+    REMOVE = 2;
+    CHECK_IN = 3;
+    CHECK_OUT = 4;
+  }
+
+  int32 bookID = 1; //the ID number of the book involved in the transaction
+  StatusChange change = 2;  //the type of transaction occurring
+}

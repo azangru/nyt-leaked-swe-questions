@@ -1,0 +1,23 @@
+{
+  "name": "webproductstest",
+  "version": "2.0.0",
+  "description": "Code test for the NYT Web Products team.",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.5.6"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "node app.js",
+    "clean": "rm -rf node_modules"
+  }
+}

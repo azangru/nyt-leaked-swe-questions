@@ -1,0 +1,261 @@
+swagger: '2.0'
+info:
+  version: 0.0.0
+  title: Pets DB
+  description: A small API to help people keep track of their pets.
+host: pets.example.com
+schemes:
+  - http
+basePath: /svc/pets/v1
+produces:
+  - application/json
+paths:
+  /profile:
+    post:
+      description: Creates a PetsDB profile.
+      parameters:
+        - name: request
+          in: body
+          schema:
+            $ref: '#/definitions/ProfileRequest'
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        201:
+          description: Success.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+    put:
+      description: Update a PetsDB profile.
+      parameters:
+        - name: request
+          in: body
+          schema:
+            $ref: '#/definitions/ProfileRequest'
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        200:
+          description: Success.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+    get:
+      description: Get PetsDB profile.
+      parameters:
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        200:
+          description: Profile found.
+          schema:
+            $ref: '#/definitions/Profile'
+        404:
+          description: Profile not found.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+  /pets:
+    get:
+      description: A list of pets in a user's PetsDB.
+      parameters:
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+        - name: limit
+          in: query
+          type: number
+          format: int32
+          description: A limit of how many pets to return.
+      responses:
+        200:
+          description: The user Profile with the new code.
+          schema:
+            $ref: '#/definitions/PetsResponse'
+        404:
+          description: Profile not found.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+  /pet:
+    post:
+      description: Adding a new pet to the PetsDB.
+      parameters:
+        - name: request
+          in: body
+          description: The pet information.
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        200:
+          description: The pet record was created.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+    put:
+      description: Updating an existing pet in the PetsDB.
+      parameters:
+        - name: request
+          in: body
+          description: The pet information.
+          required: true
+          schema:
+            $ref: '#/definitions/Pet'
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        200:
+          description: The pet's data was successfully updated.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+  /pet/{id}:
+    get:
+      description: Get an existing pet's info in the PetsDB.
+      parameters:
+        - name: id
+          in: path
+          description: The pet's ID.
+          required: true
+          type: string
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        200:
+          description: The pet's data.
+          schema:
+            $ref: '#/definitions/Pet'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+    delete:
+      description: Delete an existing pet's info from the PetsDB.
+      parameters:
+        - name: id
+          in: path
+          description: The pet's ID.
+          required: true
+          type: string
+        - name: Authorization
+          in: header
+          type: string
+          required: true
+          description: cookie header containing a user token/ID.
+      responses:
+        200:
+          description: Successful delete.
+          schema:
+            $ref: '#/definitions/Response'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Response'
+
+definitions:
+  Pet:
+    type: object
+    required:
+     - name
+    properties:
+      ID:
+        type: string
+      name:
+        type: string
+      species:
+        type: string
+      weight:
+        type: number
+        format: float64
+
+  Profile:
+    type: object
+    required:
+     - name
+    properties:
+      name:
+        type: string
+      totalPets:
+        type: number
+        format: int32
+
+  PetsResponse:
+    type: object
+    required:
+     - pets
+    properties:
+      pets:
+        type: array
+        items:
+          $ref: '#/definitions/Pet'
+
+  ProfileRequest:
+    type: object
+    description: To create or update user profile info.
+    required:
+     - name
+    properties:
+      name:
+        type: string
+
+  Response:
+    type: object
+    required:
+     - message
+    properties:
+      errorCode:
+        $ref: '#/definitions/ErrorCode'
+      errors:
+        type: array
+        items:
+          type: string
+      message:
+        type: string
+
+  ErrorCode:
+      type: string
+      enum:
+       - UNKNOWN
+       - NOT_FOUND

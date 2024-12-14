@@ -1,0 +1,9 @@
+# These owners will be the default owners for everything in the repo.
+# Unless a later match takes precedence, these owners
+# will be requested for review when someone opens a pull request.
+* @nytimes/tech-hiring-owners
+
+# There will be individual owners for each process/language.
+# For now, this is just the tech-hiring-owners group
+docs/interview-questions/backend/ @nytimes/tech-hiring-owners
+docs/interview-questions/frontend/ @nytimes/tech-hiring-owners

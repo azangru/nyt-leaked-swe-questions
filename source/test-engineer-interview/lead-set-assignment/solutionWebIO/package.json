@@ -1,0 +1,40 @@
+{
+  "name": "wf-e2e",
+  "private": true,
+  "scripts": {
+    "smoketest": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bunyan": "^1.8.8",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.1",
+    "events": "^1.1.1",
+    "lodash.defaultsdeep": "^4.6.0",
+    "minimist": "^1.2.0",
+    "shortid": "^2.2.8",
+    "sync-request": "^4.0.2",
+    "util": "^0.10.3",
+    "wdio-allure-reporter": "^0.1.2",
+    "wdio-concise-reporter": "^0.1.2",
+    "wdio-jasmine-framework": "0.2.19",
+    "wdio-phantomjs-service": "^0.2.2",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-spec-reporter": "0.1.2",
+    "webdriverio": "^4.9.11"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-kyt": "^0.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-prefer-class-properties": "^1.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "wdio-jasmine-framework": "^0.2.19",
+    "wdio-mocha-framework": "^0.5.12",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-spec-reporter": "0.1.2"
+  }
+}

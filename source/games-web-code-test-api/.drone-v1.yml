@@ -1,0 +1,118 @@
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build
+  pull: if-not-exists
+  image: jprobinson/ae-go-buildbox:1.6
+  commands:
+  - goapp get -v ./...
+  environment:
+    GOPATH: /drone
+    PATH: /usr/bin:/usr/local/go_appengine
+  when:
+    event:
+    - push
+    - pull_request
+    - tag
+
+- name: gae_1
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: update
+    project: games-puzzles-sandbox
+    token: "$$GOOGLE_CREDENTIALS_LAB\n"
+    version: $$COMMIT
+  environment:
+    GOPATH: /drone
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+- name: gae_2
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: set_default_version
+    project: games-puzzles-sandbox
+    token: "$$GOOGLE_CREDENTIALS_LAB\n"
+    version: $$COMMIT
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+- name: gae_3
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: update
+    project: nyt-games-dev
+    token: "$$GOOGLE_CREDENTIALS_DEV\n"
+    version: $$COMMIT
+  environment:
+    GOPATH: /drone
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+- name: gae_4
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: set_default_version
+    project: nyt-games-dev
+    token: "$$GOOGLE_CREDENTIALS_DEV\n"
+    version: $$COMMIT
+  when:
+    branch:
+    - main
+    event:
+    - push
+
+- name: gae_5
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: update
+    project: nyt-games-prd
+    token: "$$GOOGLE_CREDENTIALS_PRD\n"
+    version: $$COMMIT
+  environment:
+    GOPATH: /drone
+  when:
+    event:
+    - tag
+
+- name: gae_6
+  pull: if-not-exists
+  image: nytimes/drone-gae
+  settings:
+    action: set_default_version
+    project: nyt-games-prd
+    token: "$$GOOGLE_CREDENTIALS_PRD\n"
+    version: $$COMMIT
+  when:
+    event:
+    - tag
+
+- name: notify
+  pull: if-not-exists
+  settings:
+    slack:
+      channel: games-releases
+      username: drone
+      webhook_url: $$SLACK_WEBHOOK_URL
+
+...

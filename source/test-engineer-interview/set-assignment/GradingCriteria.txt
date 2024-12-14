@@ -1,0 +1,17 @@
+Grading Criteria
+
+1. Working solution is submitted by following given guidelines. 
+* 1 points if 1/3 user scenarios are automated 
+* 2 points if 2/3 user scenarios are automated
+* 3 points if 2/3 user scenarios are automated and test execution instructions were very clear.  
+* 5 points if bonus user scenario 3 is automated (3/3) and test execution instructions were very clear.
+
+2. Along with working code, we care about quality of the code which will be heavily assesed i.e comments, structure, clear variables names, avoiding magic numbers, etc.   
+0-5 points
+
+3. Solution is implemented using Page object pattern and uses optimized css selector strategy. 
+* 3 points for PO implementation 
+* 2 points of elements location strategy/optimized 
+
+4. More bonus points if you use http://webdriver.io/ 
+* 5 points 

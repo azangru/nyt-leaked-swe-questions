@@ -1,0 +1,14 @@
+runtime: nodejs10
+service: hiring
+
+default_expiration: "0s"
+
+handlers:
+- url: /
+  static_files: site/index.html
+  upload: site/index.html
+- url: /(.+)/
+  static_files: site/\1/index.html
+  upload: site/(.+)/index.html
+- url: /
+  static_dir: site

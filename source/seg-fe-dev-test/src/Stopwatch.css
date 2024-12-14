@@ -1,0 +1,8 @@
+.Stopwatch {
+  text-align: center;
+  padding: 10px;
+}
+
+.Stopwatch-display {
+  font-size: 2em;
+}

@@ -1,0 +1,126 @@
+# Project information
+site_name: "Tech Hiring Docs"
+site_description: "Documentation focused on hiring technology"
+site_author: "The Tech Hiring Engineering Team"
+site_url: "https://hiring.tech.nyt.net"
+
+# Repository
+repo_name: "nytimes/tech-hiring-docs"
+repo_url: "https://github.com/nytimes/tech-hiring-docs"
+edit_uri: edit/main/docs/ # @see https://www.mkdocs.org/user-guide/configuration/#edit_uri
+
+# Configuration
+theme:
+        name: "material"
+        custom_dir: "theme"
+        language: "en"
+        # If you need to match these colors anywhere you can get their hex codes
+        # from the Material theme repo:
+        # https://github.com/squidfunk/mkdocs-material/blob/master/material/partials/palette.html
+        palette:
+                primary: "blue-grey"
+                accent: "red"
+        font:
+                text: "Roboto"
+                code: "Roboto Mono"
+        logo: "images/nyt-logo.svg"
+        feature:
+                tabs: true
+
+# Navigation bar
+nav:
+        - Home:
+                  - Home: index.md
+                  - External Job Board: https://boards.greenhouse.io/thenewyorktimes
+                  - Internal Job Board: https://app5.greenhouse.io/internal_job_board
+                  - Process: process/index.md
+                  - Interview Guides and Questions: guides-and-questions/index.md
+                  - Principles: principles.md
+                  - Contributing: contributing.md
+        - Hiring Process:
+                  - Process Overview: process/index.md
+                  - Internal Transfers: process/internal.md
+                  - Lead & Principal Engineer Hiring Process: process/lead-principal-hiring.md
+                  - Phases:
+                            - Applying: process/phases/applying.md
+                            - Application Review: process/phases/application-assessment.md
+                            - Application Review Guidelines: process/phases/application-review-guidelines.md
+                            - Recruiter Screen: process/phases/recruiter-screen.md
+                            - Mobile Take Home Assignment: process/phases/take-home-assessment.md
+                            - Tech Screen: process/phases/tech-screen.md
+                            - Panel Interviews: process/phases/panel-interviews.md
+                            - Review and Hiring Decisions: process/phases/feedback-review.md
+                  - Resources: process/resources.md
+        - Interview Guides and Questions:
+                  - Guides & Questions Overview: guides-and-questions/index.md
+                  - Technical Screen:
+                            - Tech Screen Overview: guides-and-questions/tech-screen/index.md
+                            - Tech Screen Guide: guides-and-questions/tech-screen/tech-screen.md
+                            - Discussion Questions: guides-and-questions/tech-screen/background-questions.md
+                            - Discussion Rubric: guides-and-questions/tech-screen/background-expectations.md
+                            - Coding Questions:
+                                      - Overview: guides-and-questions/tech-screen/coding-overview.md
+                                      - Remove Dupes: guides-and-questions/tech-screen/remove-dupes.md
+                            - Rubric: guides-and-questions/tech-screen/tech-assessment-rubric.md
+                  - Onsite:
+                            - Onsite Overview: guides-and-questions/onsite/index.md
+                            - Algorithms & Data Structures:
+                                      - Algo & Data Overview: guides-and-questions/onsite/algo-and-data-structures/index.md
+                                      - Algo & Data Guide: guides-and-questions/onsite/algo-and-data-structures/coding-interview.md
+                                      - Bylines: guides-and-questions/onsite/algo-and-data-structures/bylines.md
+                                      - Parentheses: guides-and-questions/onsite/algo-and-data-structures/parentheses.md
+                                      - Brackets (parentheses extension): guides-and-questions/onsite/algo-and-data-structures/brackets.md
+                                      - Weather: guides-and-questions/onsite/algo-and-data-structures/weather.md
+                                      - Code Review: guides-and-questions/onsite/algo-and-data-structures/code-review.md
+                            - Systems Design:
+                                      - System Design Overview: guides-and-questions/onsite/systems-design/index.md
+                                      - System Design Guide: guides-and-questions/onsite/systems-design/systems-design-interview.md
+                                      - Backend:
+                                                - Metrics Service: guides-and-questions/onsite/systems-design/backend/metrics-service.md
+                                                - Meter Service: guides-and-questions/onsite/systems-design/backend/meter-service.md
+                                                - Comment Service: guides-and-questions/onsite/systems-design/backend/comment-service.md
+                                      - Frontend:
+                                                - Design medium.com: guides-and-questions/onsite/systems-design/frontend/medium.md
+                            - Non-technical:
+                                      - Non-technical Overview: guides-and-questions/onsite/non-technical/index.md
+                                      - Ability to Learn & Teach: guides-and-questions/onsite/non-technical/learn-and-teach.md
+                                      - Values alignment: guides-and-questions/onsite/non-technical/values.md
+                                      - Learn & Teach Rubric: guides-and-questions/onsite/non-technical/learn-and-teach-rubric.md
+                                      - Values Alignment Rubric: guides-and-questions/onsite/non-technical/values-rubric.md
+                                      - Manager: guides-and-questions/onsite/non-technical/manager.md
+                  - Mobile:
+                            - Code Assignment:
+                                      - Challenge Overview: guides-and-questions/mobile/take-home-assignment.md
+                                      - iOS Code Review Rubric: guides-and-questions/mobile/code-review-rubric.md
+                  - Engineering Manager:
+                            - System Architecture: guides-and-questions/engineering-manager/system-architecture.md
+                            - Collaboration & Empathy: guides-and-questions/engineering-manager/collaboration-and-empathy.md
+                            - Leadership & Strategy: guides-and-questions/engineering-manager/leadership-and-strategy.md
+                            - People Management: guides-and-questions/engineering-manager/people-management.md 
+        - Internal Mobility:
+                  - Candidate's Guide: internal-mobility/index.md
+                  - Manager's Guide: internal-mobility/manager-guide.md
+
+# Extensions
+markdown_extensions:
+        - admonition
+        - codehilite:
+                  guess_lang: false
+        - toc:
+                  permalink: true
+        - pymdownx.arithmatex
+        - pymdownx.betterem:
+                  smart_enable: all
+        - pymdownx.caret
+        - pymdownx.critic
+        - pymdownx.details
+        - pymdownx.emoji:
+                  emoji_generator: !!python/name:pymdownx.emoji.to_svg
+        - pymdownx.inlinehilite
+        - pymdownx.magiclink
+        - pymdownx.mark
+        - pymdownx.smartsymbols
+        - pymdownx.superfences
+        - pymdownx.tasklist:
+                  custom_checkbox: true
+        - pymdownx.tilde

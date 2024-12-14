@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Stopwatch > .Stopwatch-display {
+  margin-bottom: 10px;
+}
+.Stopwatch > .Stopwatch-actions > button {
+  margin-right: 10px;  
+}
